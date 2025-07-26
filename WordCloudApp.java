@@ -12,15 +12,16 @@ public class WordCloudApp {
         User justin = new User("justin", 24, "male", "California");
         justin.addPost(new Post("Rainwater harvesting can help the planet.", "2025-07-25T12:00:00"));
         justin.addPost(new Post("Water is essential for all life on Earth.", "2025-07-27T09:00:00"));
+        justin.addPost(new Post("Protecting Earth's water resources is our responsibility.", "2025-07-28T11:00:00"));
         users.add(justin);
 
         // Example: filter for posts that include 'water', exclude 'planet', by female users, age 18-30, in Hawaii
         List<String> includeKeywords = Arrays.asList("water");
         List<String> excludeKeywords = Arrays.asList("planet");
-        String genderFilter = "male";
+        String genderFilter = "female";
         Integer minAge = 18;
         Integer maxAge = 30;
-        String locationFilter = "California";
+        String locationFilter = "Hawaii";
 
         List<Post> filtered = WordCloudUtils.filterPosts(users, includeKeywords, excludeKeywords, genderFilter, minAge, maxAge, locationFilter);
         Map<String, Integer> freq = WordCloudUtils.countWordFrequencies(filtered);
